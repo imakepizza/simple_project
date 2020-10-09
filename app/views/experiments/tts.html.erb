@@ -1,3 +1,36 @@
-<h1>Text to speech</h1>
-<button>speech text</button>
+<div class="container"></div>
+
+<%= simple_form_for :user, remote: true, :url => '/experiments/tts', :method => :post do |f| %>
+ <%= f.error_notification %>
+  <%= f.input :request, placeholder: "Enter your text: ", :as => :text, input_html: { :style=> 'width: 70%;', :rows => 10, id: "body-field", name: "request", include_blank: false, required: true} %>
+
+<div class="chained-selects">
+   <select required id="select-1" name="lang">
+      <option value="" selected>Choose language/locale</option>
+      <option value="en-US">English (United States)</option>
+      <option value="ru-RU">Русский (Россия)</option>on>
+   </select>
+   <select required id="select-2" disabled>
+      <option value="" selected>Choose voice type</option>
+   </select>
+   <select required id="select-3" name="voicename" disabled>
+      <option value="" selected>Choose voice name</option>
+   </select>
+</div>
+<div class="radio-button">
+   <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" class="custom-control-input" id="MP3" value="MP3" name="codec" checked="checked">
+      <label class="custom-control-label" for="MP3">MP3</label>
+   </div>
+   <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" class="custom-control-input" id="WAV" value="LINEAR16" name="codec">
+      <label class="custom-control-label" for="WAV">WAV</label>
+   </div>
+
+</div>
+<div id="btnSubmit" type="submit" class="btn btn-light">
+   <%= f.button :submit, 'Send' %>
+   <% end %>
+</div>
+</form>
 

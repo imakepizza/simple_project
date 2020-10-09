@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SimpleProject</title>
+  </head>
+
+  <body>
+  <% if !flash[:notice].blank? %>
+  	<div class="notice">
+  <%= flash[:notice] %>
+  </div>
+  <% end %>
+    <%= yield %>
+   <div><%= link_to("Back to menu", admin_path) %> </div>
+  </body>
+</html>
